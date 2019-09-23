@@ -63,7 +63,7 @@ void loop() {
   //float weight_2 = scale_2.get_units(10);
   //client.publish(weight_topic_2, String(weight_2).c_str(), true);   // Publish weight on weight_topic
 
-  delay(2000);
+  delay(5000);
 }
 
 void InitWiFi()
