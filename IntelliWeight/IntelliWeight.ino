@@ -20,14 +20,14 @@ HX711 scale_2;
 
 //Configuration for WiFi
 #define WIFI_AP "<SSID>"  //Add SSID
-#define WIFI_PASSWORD "<PASS>" //Add PASSWORD
+#define WIFI_PASSWORD "<PASSWORD>" //Add PASSWORD
 
 //Configuration for MQTT
 WiFiEspClient espClient;
 #define mqtt_server "3.83.223.148" //soldier.cloudmqtt.com
 #define mqtt_port 13115
-#define mqtt_user "<USER>"
-#define mqtt_password "<PASS>"
+#define mqtt_user "<USER_MQTT>"
+#define mqtt_password "<PASS_MQTT>"
 #define weight_topic_1 "/board_1/weight_1"
 #define weight_topic_2 "/board_1/weight_2"
 
@@ -55,7 +55,7 @@ void loop() {
   if (!client.connected()) {
     reconnect();
   }
-  client.loop();
+  //client.loop();
 
   float weight_1 = scale_1.get_units(10);
   client.publish(weight_topic_1, String(weight_1).c_str(), true);   // Publish weight on weight_topic
@@ -63,7 +63,7 @@ void loop() {
   //float weight_2 = scale_2.get_units(10);
   //client.publish(weight_topic_2, String(weight_2).c_str(), true);   // Publish weight on weight_topic
 
-  delay(5000);
+  delay(500);
 }
 
 void InitWiFi()
